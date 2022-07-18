@@ -136,7 +136,7 @@ public class CartServiceImpl implements CartService {
         }
         CartTypeEnum cartTypeEnum = getCartType(cartType);
         GoodsSku dataSku = checkGoods(skuId);
-        Map<String, Object> promotionMap = promotionGoodsService.getCurrentGoodsPromotion(dataSku, cartType);
+        Map<String, Object> promotionMap = promotionGoodsService.getCurrentGoodsPromotion(dataSku, cartTypeEnum.name());
 
         try {
             //购物车方式购买需要保存之前的选择，其他方式购买，则直接抹除掉之前的记录
@@ -199,9 +199,9 @@ public class CartServiceImpl implements CartService {
 
             this.checkGoodsSaleModel(dataSku, tradeDTO.getSkuList());
             tradeDTO.setCartTypeEnum(cartTypeEnum);
-            //如购物车发生更改，则重置优惠券
-            tradeDTO.setStoreCoupons(null);
-            tradeDTO.setPlatformCoupon(null);
+
+            remoteCoupon(tradeDTO);
+
             this.resetTradeDTO(tradeDTO);
         } catch (ServiceException serviceException) {
             throw serviceException;
@@ -245,6 +245,9 @@ public class CartServiceImpl implements CartService {
     @Override
     public void checked(String skuId, boolean checked) {
         TradeDTO tradeDTO = this.readDTO(CartTypeEnum.CART);
+
+        remoteCoupon(tradeDTO);
+
         List<CartSkuVO> cartSkuVOS = tradeDTO.getSkuList();
         for (CartSkuVO cartSkuVO : cartSkuVOS) {
             if (cartSkuVO.getGoodsSku().getId().equals(skuId)) {
@@ -257,6 +260,9 @@ public class CartServiceImpl implements CartService {
     @Override
     public void checkedStore(String storeId, boolean checked) {
         TradeDTO tradeDTO = this.readDTO(CartTypeEnum.CART);
+
+        remoteCoupon(tradeDTO);
+
         List<CartSkuVO> cartSkuVOS = tradeDTO.getSkuList();
         for (CartSkuVO cartSkuVO : cartSkuVOS) {
             if (cartSkuVO.getStoreId().equals(storeId)) {
@@ -269,11 +275,24 @@ public class CartServiceImpl implements CartService {
     @Override
     public void checkedAll(boolean checked) {
         TradeDTO tradeDTO = this.readDTO(CartTypeEnum.CART);
+
+        remoteCoupon(tradeDTO);
+
         List<CartSkuVO> cartSkuVOS = tradeDTO.getSkuList();
         for (CartSkuVO cartSkuVO : cartSkuVOS) {
             cartSkuVO.setChecked(checked);
         }
         cache.put(this.getOriginKey(CartTypeEnum.CART), tradeDTO);
+    }
+
+    /**
+     * 当购物车商品发生变更时，取消已选择当优惠券
+     *
+     * @param tradeDTO
+     */
+    private void remoteCoupon(TradeDTO tradeDTO) {
+        tradeDTO.setPlatformCoupon(null);
+        tradeDTO.setStoreCoupons(new HashMap<>());
     }
 
     @Override
@@ -508,6 +527,12 @@ public class CartServiceImpl implements CartService {
         AuthUser currentUser = Objects.requireNonNull(UserContext.getCurrentUser());
         //获取购物车，然后重新写入优惠券
         CartTypeEnum cartTypeEnum = getCartType(way);
+
+        //积分商品不允许使用优惠券
+        if (cartTypeEnum.equals(CartTypeEnum.POINTS)) {
+            throw new ServiceException(ResultCode.SPECIAL_CANT_USE);
+        }
+
         TradeDTO tradeDTO = this.readDTO(cartTypeEnum);
 
         MemberCouponSearchParams searchParams = new MemberCouponSearchParams();
