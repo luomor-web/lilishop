@@ -62,6 +62,9 @@ public class PromotionServiceImpl implements PromotionService {
     @Autowired
     private PointsGoodsService pointsGoodsService;
 
+    @Autowired
+    private KanjiaActivityGoodsService kanjiaActivityGoodsService;
+
 
     /**
      * 获取当前进行的所有促销活动信息
@@ -116,6 +119,11 @@ public class PromotionServiceImpl implements PromotionService {
         return promotionMap;
     }
 
+    @Override
+    public void removeByGoodsIds(String goodsIdsJsonStr) {
+        promotionGoodsService.deletePromotionGoods(Arrays.asList(goodsIdsJsonStr.split(",")));
+        kanjiaActivityGoodsService.deleteByGoodsIds(Arrays.asList(goodsIdsJsonStr.split(",")));
+    }
 
     private void getGoodsCurrentSeckill(String esPromotionKey, PromotionGoods promotionGoods, Map<String, Object> promotionMap) {
         Seckill seckill = seckillService.getById(promotionGoods.getPromotionId());
