@@ -37,6 +37,7 @@ public enum ResultCode {
     LIMIT_ERROR(1003, "访问过于频繁，请稍后再试"),
     ILLEGAL_REQUEST_ERROR(1004, "非法请求，请重新刷新页面操作"),
     IMAGE_FILE_EXT_ERROR(1005, "不支持图片格式"),
+    FILE_NOT_EXIST_ERROR(1011, "上传文件不能为空"),
     FILE_TYPE_NOT_SUPPORT(1010, "不支持上传的文件类型！"),
     PLATFORM_NOT_SUPPORTED_IM(1006, "平台未开启IM"),
     STORE_NOT_SUPPORTED_IM(1007, "店铺未开启IM"),
@@ -80,6 +81,7 @@ public enum ResultCode {
 
     HAVE_INVALID_SALES_MODEL(11023, "批发规则存在小于等于0的无效数据！"),
     MUST_HAVE_GOODS_SKU_VALUE(11024, "规格值不能为空！"),
+    DO_NOT_MATCH_WHOLESALE(11025, "批发商品购买数量不能低于起拍量！"),
 
     GOODS_PARAMS_ERROR(11013, "商品参数错误，刷新后重试"),
     PHYSICAL_GOODS_NEED_TEMP(11014, "实物商品需选择配送模板"),
@@ -138,7 +140,14 @@ public enum ResultCode {
     USER_CONNECT_BANDING_ERROR(20023, "当前联合登陆方式，已绑定其他账号，需进行解绑操作"),
     USER_CONNECT_NOT_EXIST_ERROR(20024, "暂无联合登陆信息，无法实现一键注册功能，请点击第三方登录进行授权"),
     USER_POINTS_ERROR(20024, "用户积分不足"),
-
+    CLERK_SUPPER(20025, "店主无法操作"),
+    CLERK_SAVE_ERROR(20026, "店员保存失败"),
+    CLERK_NOT_FOUND_ERROR(20027, "店员不存在"),
+    USER_STATUS_ERROR(20028, "用户已禁用"),
+    CLERK_USER_ERROR(20029, "此账户已经绑定其他店铺"),
+    CLERK_ALREADY_EXIT_ERROR(20030, "店员已经存在"),
+    CLERK_DISABLED_ERROR(20031, "店员已禁用"),
+    CLERK_CURRENT_SUPPER(20032, "无法删除当前登录店员"),
     /**
      * 权限
      */
@@ -147,6 +156,10 @@ public enum ResultCode {
     PERMISSION_MENU_ROLE_ERROR(21003, "菜单已绑定角色，请先删除或编辑角色"),
     PERMISSION_DEPARTMENT_DELETE_ERROR(21004, "部门已经绑定管理员，请先删除或编辑管理员"),
     PERMISSION_BEYOND_TEN(21005, "最多可以设置10个角色"),
+    PERMISSION_NOT_FOUND_ERROR(21006, "部门不存在"),
+    PERMISSION_ROLE_NOT_FOUND_ERROR(21007, "角色不存在"),
+    PERMISSION_CLERK_BAND_ERROR(21008, "此手机号码已绑定其他店铺 "),
+
 
     /**
      * 分销
@@ -390,7 +403,7 @@ public enum ResultCode {
 
     STORE_NOT_EXIST(50001, "此店铺不存在"),
     STORE_NAME_EXIST_ERROR(50002, "店铺名称已存在!"),
-    STORE_APPLY_DOUBLE_ERROR(50003, "已有店铺，无需重复申请!"),
+    STORE_APPLY_DOUBLE_ERROR(50003, "已经拥有店铺!"),
     STORE_NOT_OPEN(50004, "该会员未开通店铺"),
     STORE_NOT_LOGIN_ERROR(50005, "未登录店铺"),
     STORE_CLOSE_ERROR(50006, "店铺关闭，请联系管理员"),
