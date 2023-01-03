@@ -159,10 +159,10 @@ swagger:
   title: lili API接口文档
   description: lili Api Documentation
   version: 1.0.0
-  termsOfServiceUrl: https://pickmall.cn
+  termsOfServiceUrl: https://7otech.com
   contact:
     name: lili
-    url: https://pickmall.cn
+    url: https://7otech.com
     email: admin@pickmall.com
 
 # Mybatis-plus
@@ -216,10 +216,10 @@ lili:
     admin: https://admin.7otech.com
   #api地址
   api:
-    buyer: https://buyer-api.pickmall.cn
-    common: https://common-api.pickmall.cn
-    manager: https://admin-api.pickmall.cn
-    store: https://store-api.pickmall.cn
+    buyer: https://buyer-api.7otech.com
+    common: https://common-api.7otech.com
+    manager: https://admin-api.7otech.com
+    store: https://store-api.7otech.com
 
   # jwt 细节设定
   jwt-setting:
