@@ -2,6 +2,7 @@
 mvn clean package docker:build -DskipTests -DpushImage
 mvn clean package -DskipTests
 
+cd lilishop-ui
 cd buyer/
 cnpm install
 npm run build
@@ -34,6 +35,15 @@ docker push yiluxiangbei/lilishop-buyer-api:4.2.5.1
 
 docker tag registry.cn-beijing.aliyuncs.com/luomor/framework:4.2.5.1 yiluxiangbei/lilishop-framework:4.2.5.1
 docker push yiluxiangbei/lilishop-framework:4.2.5.1
+
+docker tag registry.cn-beijing.aliyuncs.com/luomor/buyer-ui:4.2.4.1 yiluxiangbei/lilishop-buyer-ui:4.2.4.1
+docker push yiluxiangbei/lilishop-buyer-ui:4.2.4.1
+
+docker tag registry.cn-beijing.aliyuncs.com/luomor/seller-ui:4.2.4.1 yiluxiangbei/lilishop-seller-ui:4.2.4.1
+docker push yiluxiangbei/lilishop-seller-ui:4.2.4.1
+
+docker tag registry.cn-beijing.aliyuncs.com/luomor/manager-ui:4.2.4.1 yiluxiangbei/lilishop-manager-ui:4.2.4.1
+docker push yiluxiangbei/lilishop-manager-ui:4.2.4.1
 ```
 
 ```
