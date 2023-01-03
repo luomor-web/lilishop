@@ -13,7 +13,8 @@ services:
       - "MYSQL_ROOT_PASSWORD=lilishop"
       - "MYSQL_DATABASE=lilishop"
       - "TZ=Asia/Shanghai"
-    network_mode: host
+    networks:
+      - lilishop
 
   mongo:
     image: mongo:5.0.2
@@ -58,7 +59,7 @@ services:
       options:
         max-size: "50m"
     networks: 
-      - stack
+      - lilishop
     ulimits:
       nofile:
           soft: 65535
@@ -73,7 +74,7 @@ services:
     # volumes:
             #    - "./config/kibana.yml:/usr/share/kibana/config/kibana.yml"
     networks: 
-      - stack
+      - lilishop
     depends_on: ['elasticsearch']  
 
 
@@ -84,7 +85,7 @@ services:
     volumes:
       - ./config/logstash-springboot.conf:/usr/share/logstash/pipeline/logstash.conf #挂载logstash的配置文件
     networks: 
-      - stack
+      - lilishop
     depends_on: ['elasticsearch']
     ports: 
       - 4560:4560
@@ -100,7 +101,7 @@ services:
       - ../volumes/data/rocket/server/logs:/opt/logs
       - ../volumes/data/rocket/server/store:/opt/rmqstore
     networks:
-      - rocketmq
+      - lilishop
     ports:
       - 9876:9876
   # rocket mq broker
@@ -120,7 +121,7 @@ services:
     depends_on:
       - rmqnamesrv
     networks:
-      - rocketmq
+      - lilishop
     ports:
       - 10909:10909
       - 10911:10911
@@ -135,7 +136,7 @@ services:
     depends_on:
       - rmqnamesrv
     networks:
-      - rocketmq
+      - lilishop
     ports:
       - 8180:8180
   # xxl-job 分布式调度中心
@@ -143,7 +144,8 @@ services:
     image: xuxueli/xxl-job-admin:2.3.0
     restart: always
     container_name: xxl-job
-    network_mode: host
+    networks:
+      - lilishop
     environment:
       - PARAMS=--spring.datasource.url=jdbc:mysql://127.0.0.1:3306/lilishop?Unicode=true&characterEncoding=UTF-8  --spring.datasource.username=root --spring.datasource.password=lilishop --server.port=9001
     depends_on:
@@ -151,8 +153,5 @@ services:
     volumes:
       - ../volumes/data/xxl-job:/data/applogs
 networks: 
-  rocketmq:
+  lilishop:
     driver: bridge
-  stack:
-    driver: bridge
-
