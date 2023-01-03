@@ -2,6 +2,18 @@
 mvn clean package docker:build -DskipTests -DpushImage
 mvn clean package -DskipTests
 
+cd buyer/
+cnpm install
+npm run build
+
+cd manager/
+cnpm install
+npm run build
+
+cd seller/
+cnpm install
+npm run build
+
 docker tag registry.cn-beijing.aliyuncs.com/luomor/admin:4.2.5.1 yiluxiangbei/lilishop-admin:4.2.5.1
 docker push yiluxiangbei/lilishop-admin:4.2.5.1
 
