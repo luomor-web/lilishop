@@ -47,11 +47,11 @@ buyer：买家PC端，seller：商家端，manager：后台管理端
 ### 演示地址
 PS：手机验证码为 ‘111111’
 
-**平台管理端**：https://admin-b2b2c.pickmall.cn 账号：admin/123456
+**平台管理端**：https://admin-7otech.com 账号：admin/123456
 
-**店铺管理端**：https://store-b2b2c.pickmall.cn 账号：13011111111/111111
+**店铺管理端**：https://store-7otech.com 账号：13011111111/111111
 
-**商城PC页面**：https://pc-b2b2c.pickmall.cn
+**商城PC页面**：https://pc-7otech.com
 
 **商城 小程序/公众号/APP**：扫描二维码
 

@@ -215,10 +215,10 @@ lili:
     sk: zhNKVrJK6UPOhqIjn8AQvG37b9sz6
   #域名
   domain:
-    pc: https://pc.b2b2c.pickmall.cn
-    wap: https://m.b2b2c.pickmall.cn
-    store: https://store.b2b2c.pickmall.cn
-    admin: https://admin.b2b2c.pickmall.cn
+    pc: https://pc.7otech.com
+    wap: https://m.7otech.com
+    store: https://store.7otech.com
+    admin: https://admin.7otech.com
   #api地址
   api:
     buyer: https://buyer-api.pickmall.cn
