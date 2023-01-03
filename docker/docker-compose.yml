@@ -156,6 +156,8 @@ services:
     restart: always
     image: registry.cn-beijing.aliyuncs.com/luomor/buyer-api:4.2.5.1
     container_name: buyer
+    ports:
+      - 8888:8888
     networks:
       - lilishop
     environment:
@@ -166,16 +168,21 @@ services:
     restart: always
     image: registry.cn-beijing.aliyuncs.com/luomor/common-api:4.2.5.1
     container_name: common
+    ports:
+      - 8890:8890
     environment:
       - TZ=Asia/Shanghai
       - JAVA_OPTS=-XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=128m -Xms128m -Xmx256m -Xmn128m -Xss256k -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC
     networks:
       - lilishop
 
+  # 8886
   seller:
     restart: always
     image: registry.cn-beijing.aliyuncs.com/luomor/seller-api:4.2.5.1
     container_name: seller
+    ports:
+      - 8889:8889
     environment:
       - TZ=Asia/Shanghai
       - JAVA_OPTS=-XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=128m -Xms128m -Xmx256m -Xmn128m -Xss256k -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC
@@ -186,16 +193,11 @@ services:
     restart: always
     image: registry.cn-beijing.aliyuncs.com/luomor/manager-api:4.2.5.1
     container_name: manager
+    ports:
+      - 8887:8887
     environment:
       - TZ=Asia/Shanghai
       - JAVA_OPTS=-XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=128m -Xms128m -Xmx256m -Xmn128m -Xss256k -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC
-    networks:
-      - lilishop
-
-  wap-ui:
-    restart: always
-    image: registry.cn-beijing.aliyuncs.com/luomor/wap-ui:4.2.5.1
-    container_name: wap-ui
     networks:
       - lilishop
 
@@ -203,6 +205,8 @@ services:
     restart: always
     image: registry.cn-beijing.aliyuncs.com/luomor/buyer-ui:4.2.5.1
     container_name: buyer-ui
+    ports:
+      - 8180:80
     networks:
       - lilishop
 
@@ -210,6 +214,8 @@ services:
     restart: always
     image: registry.cn-beijing.aliyuncs.com/luomor/seller-ui:4.2.5.1
     container_name: seller-ui
+    ports:
+      - 8180:80
     networks:
       - lilishop
 
@@ -217,6 +223,8 @@ services:
     restart: always
     image: registry.cn-beijing.aliyuncs.com/luomor/manager-ui:4.2.5.1
     container_name: manager-ui
+    ports:
+      - 8180:80
     networks:
       - lilishop
 networks: 
