@@ -15,6 +15,12 @@ cd seller/
 cnpm install
 npm run build
 
+yum install jq -y
+curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/hello-world/tags?page_size=1024' | jq '.results[]["name"]' | sed 's/\"//g' | sort -u
+curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/node/tags?page_size=1024' | jq '.results[]["name"]' | sed 's/\"//g' | sort -u
+curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/node/tags?page=2&page_size=1024' | jq '.results[]["name"]' | sed 's/\"//g' | sort -u
+curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/node/tags?page=3&page_size=1024' | jq '.results[]["name"]' | sed 's/\"//g' | sort -u
+
 docker tag registry.cn-beijing.aliyuncs.com/luomor/admin:4.2.5.1 yiluxiangbei/lilishop-admin:4.2.5.1
 docker push yiluxiangbei/lilishop-admin:4.2.5.1
 
