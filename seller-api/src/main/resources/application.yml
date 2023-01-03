@@ -28,12 +28,12 @@ spring:
   boot:
     admin:
       client:
-        url: http://127.0.0.1:8000
+        url: http://172.21.16.11:8000
   cache:
     type: redis
   # Redis
   redis:
-    host: 127.0.0.1
+    host: redis
     port: 6379
     password: lilishop
     lettuce:

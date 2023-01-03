@@ -24,7 +24,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://192.168.0.116:8000
+        url: http://172.21.16.11:8000
   cache:
     type: redis
   #amqp

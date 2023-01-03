@@ -46,7 +46,6 @@ services:
       - ../volumes/data/es7/data:/usr/share/es7/data:rw
       - ./config/ik:/usr/share/elasticsearch/plugins/ik
         #      - "./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml"
-    restart: on-failure
     ports: 
       - "9200:9200"
       - "9300:9300"
