@@ -205,7 +205,7 @@ services:
 
   buyer-ui:
     restart: always
-    image: registry.cn-beijing.aliyuncs.com/luomor/buyer-ui:4.2.5.1
+    image: registry.cn-beijing.aliyuncs.com/luomor/buyer-ui:4.2.4.1
     container_name: buyer-ui
     ports:
       - 8021:80
@@ -214,7 +214,7 @@ services:
 
   seller-ui:
     restart: always
-    image: registry.cn-beijing.aliyuncs.com/luomor/seller-ui:4.2.5.1
+    image: registry.cn-beijing.aliyuncs.com/luomor/seller-ui:4.2.4.1
     container_name: seller-ui
     ports:
       - 8022:80
@@ -223,7 +223,7 @@ services:
 
   manager-ui:
     restart: always
-    image: registry.cn-beijing.aliyuncs.com/luomor/manager-ui:4.2.5.1
+    image: registry.cn-beijing.aliyuncs.com/luomor/manager-ui:4.2.4.1
     container_name: manager-ui
     ports:
       - 8023:80
