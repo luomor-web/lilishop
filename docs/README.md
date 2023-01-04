@@ -85,4 +85,26 @@ REPOSITORY                                                                      
 registry.cn-beijing.aliyuncs.com/luomor/seller-ui                                                                4.2.4.1                          63592367b981   49 seconds ago   29.6MB
 registry.cn-beijing.aliyuncs.com/luomor/manager-ui                                                               4.2.4.1                          54b44bbe4ddb   3 minutes ago    29.8MB
 registry.cn-beijing.aliyuncs.com/lili-images/buyer-ui                                                            4.2.4.1                          0bc102eccb5c   5 minutes ago    26.8MB
+
+docker-compose ps
+     Name                   Command               State                                                  Ports
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+buyer            java -jar /buyer-api-4.2.5.jar   Up      0.0.0.0:8888->8888/tcp,:::8888->8888/tcp
+buyer-ui         /docker-entrypoint.sh ngin ...   Up      0.0.0.0:8021->80/tcp,:::8021->80/tcp
+common           java -jar /common-api-4.2. ...   Up      0.0.0.0:8890->8890/tcp,:::8890->8890/tcp
+elasticsearch    /usr/local/bin/docker-entr ...   Up      0.0.0.0:9200->9200/tcp,:::9200->9200/tcp, 0.0.0.0:9300->9300/tcp,:::9300->9300/tcp
+kibana           /usr/local/bin/kibana-docker     Up      0.0.0.0:5601->5601/tcp,:::5601->5601/tcp
+lilishop-mongo   docker-entrypoint.sh mongod      Up      0.0.0.0:27011->27017/tcp,:::27011->27017/tcp
+lilishop-mysql   docker-entrypoint.sh mysqld      Up      0.0.0.0:3301->3306/tcp,:::3301->3306/tcp, 33060/tcp
+lilishop-redis   docker-entrypoint.sh redis ...   Up      0.0.0.0:6380->6379/tcp,:::6380->6379/tcp
+logstash         /usr/local/bin/docker-entr ...   Up      0.0.0.0:4560->4560/tcp,:::4560->4560/tcp, 5044/tcp, 9600/tcp
+manager          java -jar /manager-api-4.2 ...   Up      0.0.0.0:8887->8887/tcp,:::8887->8887/tcp
+manager-ui       /docker-entrypoint.sh ngin ...   Up      0.0.0.0:8023->80/tcp,:::8023->80/tcp
+rocket-broker    mqbroker -c /etc/rocketmq/ ...   Up      0.0.0.0:10909->10909/tcp,:::10909->10909/tcp, 0.0.0.0:10911->10911/tcp,:::10911->10911/tcp,
+                                                          10912/tcp, 9876/tcp
+rocket-console   sh -c java $JAVA_OPTS -jar ...   Up      0.0.0.0:8180->8180/tcp,:::8180->8180/tcp
+rocket-server    /bin/sh -c cd ${ROCKETMQ_H ...   Up      10909/tcp, 10911/tcp, 10912/tcp, 0.0.0.0:9876->9876/tcp,:::9876->9876/tcp
+seller           java -jar /seller-api-4.2. ...   Up      0.0.0.0:8889->8889/tcp,:::8889->8889/tcp
+seller-ui        /docker-entrypoint.sh ngin ...   Up      0.0.0.0:8022->80/tcp,:::8022->80/tcp
+xxl-job          sh -c java -jar $JAVA_OPTS ...   Up      0.0.0.0:9003->9001/tcp,:::9003->9001/tcp
 ```
