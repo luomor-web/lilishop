@@ -270,3 +270,5 @@ xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute
 xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
 xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
 xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+
+seller           | 2023-01-04 15:38:16.931  WARN 1 --- [gistrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=seller-api, managementUrl=http://3844a791a7a7:8889/actuator, healthUrl=http://3844a791a7a7:8889/actuator/health, serviceUrl=http://3844a791a7a7:8889/) at spring-boot-admin ([http://172.21.16.11:8000/instances]): I/O error on POST request for "http://172.21.16.11:8000/instances": Connect to 172.21.16.11:8000 [/172.21.16.11] failed: Connection refused (Connection refused); nested exception is org.apache.http.conn.HttpHostConnectException: Connect to 172.21.16.11:8000 [/172.21.16.11] failed: Connection refused (Connection refused). Further attempts are logged on DEBUG level
