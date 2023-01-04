@@ -47,3 +47,226 @@ manager          |      at com.mysql.cj.protocol.StandardSocketFactory.connect(S
 manager          |      at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
 manager          |      ... 17 common frames omitted
 manager          |
+
+xxl-job          | 15:01:18.475 logback [xxl-job, admin JobFailMonitorHelper] ERROR c.x.j.a.c.t.JobFailMonitorHelper - >>>>>>>>>>> xxl-job, job fail monitor
+thread error:{}
+xxl-job          | org.springframework.jdbc.BadSqlGrammarException:
+xxl-job          | ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_log' doesn't exist
+xxl-job          | ### The error may exist in class path resource [mybatis-mapper/XxlJobLogMapper.xml]
+xxl-job          | ### The error may involve defaultParameterMap
+xxl-job          | ### The error occurred while setting parameters
+xxl-job          | ### SQL: SELECT id FROM `xxl_job_log`   WHERE !(    (trigger_code in (0, 200) and handle_code = 0)    OR    (handle_code = 200)   )   AND
+`alarm_status` = 0   ORDER BY id ASC   LIMIT ?
+xxl-job          | ### Cause: java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_log' doesn't exist
+xxl-job          | ; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_log' doesn't exist
+xxl-job          |      at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:239)
+xxl-job          |      at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:70)
+xxl-job          |      at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:91)
+xxl-job          |      at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:441)
+xxl-job          |      at com.sun.proxy.$Proxy70.selectList(Unknown Source)
+xxl-job          |      at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+xxl-job          |      at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+xxl-job          |      at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+xxl-job          |      at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152)
+xxl-job          |      at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85)
+xxl-job          |      at com.sun.proxy.$Proxy71.findFailJobLogIds(Unknown Source)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobFailMonitorHelper$1.run(JobFailMonitorHelper.java:41)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | Caused by: java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_log' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+xxl-job          |      at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+xxl-job          |      at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+xxl-job          |      at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325)
+xxl-job          |      at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+xxl-job          |      at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+xxl-job          |      at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89)
+xxl-job          |      at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+xxl-job          |      at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+xxl-job          |      at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+xxl-job          |      at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+xxl-job          |      at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+xxl-job          |      at java.lang.reflect.Method.invoke(Method.java:498)
+xxl-job          |      at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+xxl-job          |      ... 9 common frames omitted
+xxl-job          | 15:01:19.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:20.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:21.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:22.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:23.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:24.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:25.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:26.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:27.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:28.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:28.477 logback [xxl-job, admin JobFailMonitorHelper] ERROR c.x.j.a.c.t.JobFailMonitorHelper - >>>>>>>>>>> xxl-job, job fail monitor
+thread error:{}
+xxl-job          | org.springframework.jdbc.BadSqlGrammarException:
+xxl-job          | ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_log' doesn't exist
+xxl-job          | ### The error may exist in class path resource [mybatis-mapper/XxlJobLogMapper.xml]
+xxl-job          | ### The error may involve defaultParameterMap
+xxl-job          | ### The error occurred while setting parameters
+xxl-job          | ### SQL: SELECT id FROM `xxl_job_log`   WHERE !(    (trigger_code in (0, 200) and handle_code = 0)    OR    (handle_code = 200)   )   AND
+`alarm_status` = 0   ORDER BY id ASC   LIMIT ?
+xxl-job          | ### Cause: java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_log' doesn't exist
+xxl-job          | ; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_log' doesn't exist
+xxl-job          |      at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:239)
+xxl-job          |      at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:70)
+xxl-job          |      at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:91)
+xxl-job          |      at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:441)
+xxl-job          |      at com.sun.proxy.$Proxy70.selectList(Unknown Source)
+xxl-job          |      at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+xxl-job          |      at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+xxl-job          |      at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+xxl-job          |      at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152)
+xxl-job          |      at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85)
+xxl-job          |      at com.sun.proxy.$Proxy71.findFailJobLogIds(Unknown Source)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobFailMonitorHelper$1.run(JobFailMonitorHelper.java:41)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | Caused by: java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_log' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+xxl-job          |      at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+xxl-job          |      at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+xxl-job          |      at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325)
+xxl-job          |      at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+xxl-job          |      at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+xxl-job          |      at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89)
+xxl-job          |      at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+xxl-job          |      at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+xxl-job          |      at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+xxl-job          |      at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+xxl-job          |      at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+xxl-job          |      at java.lang.reflect.Method.invoke(Method.java:498)
+xxl-job          |      at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+xxl-job          |      ... 9 common frames omitted
+xxl-job          | 15:01:29.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:30.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
+xxl-job          | 15:01:31.001 logback [xxl-job, admin JobScheduleHelper#scheduleThread] ERROR c.x.j.a.c.thread.JobScheduleHelper - >>>>>>>>>>> xxl-job, JobScheduleHelper#scheduleThread error:{}
+xxl-job          | java.sql.SQLSyntaxErrorException: Table 'lilishop.xxl_job_lock' doesn't exist
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+xxl-job          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+xxl-job          |      at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+xxl-job          |      at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+xxl-job          |      at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+xxl-job          |      at com.xxl.job.admin.core.thread.JobScheduleHelper$1.run(JobScheduleHelper.java:74)
+xxl-job          |      at java.lang.Thread.run(Thread.java:748)
