@@ -52,6 +52,14 @@ https://admin-ui.7otech.com/
 admin
 123456
 
+"live-player-plugin" : {
+                "version" : "1.3.0",
+                "provider" : "wx2b03c6e691cd7370"
+            }
+lilishop/lilishop-uniapp/unpackage/dist/build/mp-weixin
+pages/index/index
+pages/tabbar/home/index
+
 docker tag registry.cn-beijing.aliyuncs.com/luomor/consumer:4.2.5.1 yiluxiangbei/lilishop-consumer:4.2.5.1
 docker push yiluxiangbei/lilishop-consumer:4.2.5.1
 
