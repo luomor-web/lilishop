@@ -8,6 +8,8 @@ docker-compose down
 docker-compose logs -f
 
 cd lilishop-ui
+./docker1.sh
+./docker-push1.sh
 cd buyer/
 cnpm install
 npm run build
