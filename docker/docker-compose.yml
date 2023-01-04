@@ -27,6 +27,8 @@ services:
       - 27011:27017
     volumes: 
       - ./data/mongodata:/data/db
+    networks:
+      - lilishop
 
   redis:
     image: redis:6.2.5
@@ -37,6 +39,8 @@ services:
     volumes: 
       - ./data/redsidata:/data
     command: redis-server --port 6379 --requirepass lilishop --appendonly yes
+    networks:
+      - lilishop
 
   elasticsearch:
     image: elasticsearch:7.3.0
