@@ -3,7 +3,7 @@ services:
   mysql:
     image: mysql:8.0.25
     restart: always
-    container_name: mysql
+    container_name: lilishop-mysql
     volumes:
       - ./data/mysqldata:/var/lib/mysql
       - ./config/my.cnf:/etc/my.cnf
@@ -19,7 +19,7 @@ services:
   mongo:
     image: mongo:5.0.2
     restart: always
-    container_name: 'mongo'
+    container_name: lilishop-mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: lilishop
@@ -31,7 +31,7 @@ services:
   redis:
     image: redis:6.2.5
     restart: always
-    container_name: 'redis'
+    container_name: lilishop-redis
     ports:
       - 6380:6379
     volumes: 
