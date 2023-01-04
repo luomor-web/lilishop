@@ -31,6 +31,9 @@ docker-compose up xxl-job
 mysql -h127.0.0.1 -uroot -p -P3301
 lilishop
 mysql -h127.0.0.1 -uroot -p -P3301 lilishop < init/mysql/lilishop.sql
+mysql -h127.0.0.1 -uroot -p -P3301 lilishop < DB/version4.2.4to4.2.5.sql
+mysql -h127.0.0.1 -uroot -p -P3301 lilishop < DB/version4.2.3to4.2.4.sql
+mysql -h127.0.0.1 -uroot -p -P3301 lilishop < DB/version4.2.4toMASTER.sql
 
 yum install jq -y
 curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/hello-world/tags?page_size=1024' | jq '.results[]["name"]' | sed 's/\"//g' | sort -u
@@ -40,6 +43,14 @@ curl -L -s 'https://registry.hub.docker.com/v2/repositories/library/node/tags?pa
 
 docker tag registry.cn-beijing.aliyuncs.com/luomor/admin:4.2.5.1 yiluxiangbei/lilishop-admin:4.2.5.1
 docker push yiluxiangbei/lilishop-admin:4.2.5.1
+
+https://buyer-ui.7otech.com/
+https://store-ui.7otech.com/
+13011111111
+111111
+https://admin-ui.7otech.com/
+admin
+123456
 
 docker tag registry.cn-beijing.aliyuncs.com/luomor/consumer:4.2.5.1 yiluxiangbei/lilishop-consumer:4.2.5.1
 docker push yiluxiangbei/lilishop-consumer:4.2.5.1
@@ -67,6 +78,32 @@ docker push yiluxiangbei/lilishop-seller-ui:4.2.4.1
 
 docker tag registry.cn-beijing.aliyuncs.com/luomor/manager-ui:4.2.4.1 yiluxiangbei/lilishop-manager-ui:4.2.4.1
 docker push yiluxiangbei/lilishop-manager-ui:4.2.4.1
+
+wget https://cdn.pickmall.cn/cdn/iview.css
+wget "https://cdn.pickmall.cn/cdn/vue.min.js"
+wget "https://cdn.pickmall.cn/cdn/vuex.min.js"
+wget "https://cdn.pickmall.cn/cdn/vue-router.min.js"
+wget "https://cdn.pickmall.cn/cdn/axios0.19.2.js"
+wget "https://cdn.pickmall.cn/cdn/iview.min.js"
+wget "https://cdn.pickmall.cn/cdn/js.cookie.min.js"
+wget "https://cdn.pickmall.cn/cdn/vue.min.js"
+wget "https://cdn.pickmall.cn/cdn/vuex.min.js"
+wget "https://cdn.pickmall.cn/cdn/vue-router.min.js"
+wget "https://cdn.pickmall.cn/cdn/axios.min.js"
+wget "https://cdn.pickmall.cn/cdn/iview.min.js"
+wget "https://cdn.pickmall.cn/cdn/vue-lazyload.min.js"
+wget "https://cdn.pickmall.cn/cdn/js.cookie.min.js"
+wget "https://cdn.pickmall.cn/cdn/DPlayer.min.js"
+
+wget "https://cdn.pickmall.cn/cdn/sockjs.min.js"
+wget "https://cdn.pickmall.cn/cdn/vue.min.js"
+wget "https://cdn.pickmall.cn/cdn/vuex.min.js"
+wget "https://cdn.pickmall.cn/cdn/vue-router.min.js"
+wget "https://cdn.pickmall.cn/cdn/axios.min.js"
+wget "https://cdn.pickmall.cn/cdn/iview.min.js"
+wget "https://cdn.pickmall.cn/cdn/vue-lazyload.min.js"
+wget "https://cdn.pickmall.cn/cdn/js.cookie.min.js"
+wget "https://cdn.pickmall.cn/cdn/sockjs.min.js"
 
 docker rmi `docker images | grep none | awk '{print $3}'`
 ```
