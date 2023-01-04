@@ -4,6 +4,8 @@ mvn clean package -DskipTests
 
 cd docker
 docker-compose up -d
+docker-compose down
+docker-compose logs -f
 
 cd lilishop-ui
 cd buyer/

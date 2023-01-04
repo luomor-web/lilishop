@@ -1,0 +1,49 @@
+manager          | 2023-01-04 14:17:15.229 ERROR 1 --- [Create-66845334] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/lilishop?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai, errorCode 0, state 08S01
+manager          |
+manager          | com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+manager          |
+manager          | The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+manager          |      at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+manager          |      at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+manager          |      at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
+manager          |      at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
+manager          |      at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+manager          |      at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+manager          |      at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:156)
+manager          |      at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:787)
+manager          |      at com.alibaba.druid.filter.FilterEventAdapter.connection_connect(FilterEventAdapter.java:38)
+manager          |      at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150)
+manager          |      at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:787)
+manager          |      at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150)
+manager          |      at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:251)
+manager          |      at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150)
+manager          |      at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1659)
+manager          |      at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1723)
+manager          |      at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2838)
+manager          | Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+manager          |
+manager          | The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+manager          |      at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+manager          |      at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+manager          |      at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+manager          |      at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+manager          |      at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+manager          |      at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+manager          |      at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+manager          |      at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+manager          |      at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
+manager          |      at com.mysql.cj.NativeSession.connect(NativeSession.java:119)
+manager          |      at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:948)
+manager          |      at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:818)
+manager          |      ... 14 common frames omitted
+manager          | Caused by: java.net.ConnectException: Connection refused (Connection refused)
+manager          |      at java.net.PlainSocketImpl.socketConnect(Native Method)
+manager          |      at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+manager          |      at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+manager          |      at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+manager          |      at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+manager          |      at java.net.Socket.connect(Socket.java:589)
+manager          |      at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:156)
+manager          |      at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
+manager          |      ... 17 common frames omitted
+manager          |
