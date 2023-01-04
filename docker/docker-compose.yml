@@ -214,7 +214,7 @@ services:
     image: registry.cn-beijing.aliyuncs.com/luomor/buyer-ui:4.2.4.1
     container_name: buyer-ui
     ports:
-      - 8021:80
+      - 8021:10000
     networks:
       - lilishop
 
@@ -223,7 +223,7 @@ services:
     image: registry.cn-beijing.aliyuncs.com/luomor/seller-ui:4.2.4.1
     container_name: seller-ui
     ports:
-      - 8022:80
+      - 8022:10002
     networks:
       - lilishop
 
@@ -232,7 +232,7 @@ services:
     image: registry.cn-beijing.aliyuncs.com/luomor/manager-ui:4.2.4.1
     container_name: manager-ui
     ports:
-      - 8023:80
+      - 8023:10003
     networks:
       - lilishop
 networks: 
